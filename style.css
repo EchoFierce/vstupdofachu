@@ -1,0 +1,474 @@
+/* --- Змінні кольорів --- */
+:root {
+    --bg-color: #050505;
+    --text-color: #e0e0e0;
+    --primary-neon: #00f3ff;
+    --secondary-neon: #bc13fe;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+a{
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: normal;
+}
+
+/* --- Загальні стилі --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(188, 19, 254, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(0, 243, 255, 0.15) 0%, transparent 40%);
+    animation: bgPulse 10s infinite alternate;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* --- Навігація --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(5, 5, 5, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.logo {
+    color: var(--primary-neon);
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px var(--primary-neon);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+    position: relative;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-neon);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-neon);
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 10%;
+    min-height: 80vh;
+    position: relative;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    background: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+.hero-content .subtitle {
+    font-size: 1.5rem;
+    color: #aaa;
+}
+
+.hero-image img {
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+}
+
+video {
+    width: 400px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* Міні-геро для другої сторінки */
+.mini-hero {
+    min-height: 40vh;
+    justify-content: center;
+    text-align: center;
+}
+
+/* --- Основний контент --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.intro-block {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.quote-box {
+    margin-top: 30px;
+    padding: 20px;
+    border-left: 5px solid var(--secondary-neon);
+    background: linear-gradient(90deg, rgba(188, 19, 254, 0.1), transparent);
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+/* --- Сітка карток (Grid) --- */
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary-neon);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    padding: 30px;
+    border-radius: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 243, 255, 0.2);
+    border-color: var(--primary-neon);
+}
+
+.icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* --- Список переваг --- */
+.benefits-section {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 60px;
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+}
+
+.benefits-list li {
+    margin: 15px 0;
+    font-size: 1.1rem;
+}
+
+.benefits-list span {
+    color: var(--secondary-neon);
+    font-weight: bold;
+}
+
+/* --- Факти --- */
+.fact-box {
+    background: linear-gradient(135deg, var(--secondary-neon), #550a8a);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 0 20px rgba(188, 19, 254, 0.4);
+    animation: pulse 3s infinite;
+}
+
+/* --- Стилі для сторінки прикладів --- */
+.examples-list {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.example-card {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+}
+
+.example-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--secondary-neon);
+}
+
+.example-card.reverse {
+    flex-direction: row-reverse;
+}
+
+.card-img img {
+    width: 400px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.card-text h3 {
+    color: var(--primary-neon);
+    margin-bottom: 15px;
+}
+
+.highlight {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: rgba(0, 243, 255, 0.1);
+    border-left: 3px solid var(--primary-neon);
+    font-size: 0.9rem;
+}
+
+/* --- CTA (Call To Action) --- */
+.final-cta {
+    text-align: center;
+    margin-top: 80px;
+    padding: 60px 20px;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 70%);
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 40px;
+    background: var(--primary-neon);
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: 0.3s;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+}
+
+.btn:hover {
+    background: white;
+    box-shadow: 0 0 40px rgba(0, 243, 255, 0.8);
+    transform: scale(1.05);
+}
+
+/* --- Футер --- */
+footer {
+    background: black;
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid var(--glass-border);
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 5px 0;
+    color: #777;
+}
+
+footer strong {
+    color: white;
+}
+
+/* --- Анімації --- */
+
+/* Плавна поява (Fade In) */
+.fade-in {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Виїзд знизу (Slide Up) */
+.slide-up {
+    animation: slideUp 1s ease-out both;
+    animation-timeline: view(); /* Працює в нових браузерах */
+    animation-range: entry 10% cover 30%;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Плавання елементів */
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Пульсація фону */
+@keyframes bgPulse {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Пульсація блоку */
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 20px rgba(188, 19, 254, 0.4); }
+    50% { transform: scale(1.02); box-shadow: 0 0 30px rgba(188, 19, 254, 0.6); }
+    100% { transform: scale(1); box-shadow: 0 0 20px rgba(188, 19, 254, 0.4); }
+}
+
+/* Адаптивність (Mobile) */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 100px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .nav-links {
+        display: none; /* Для спрощення, в реальності треба бургер-меню */
+    }
+    
+    .example-card, .example-card.reverse {
+        flex-direction: column;
+    }
+    
+    .card-img img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* --- Секція джерел (Оновлено під списки) --- */
+.sources-section {
+    margin-top: 80px;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.sources-section h4 {
+    text-align: center;
+    color: var(--primary-neon);
+    margin-bottom: 40px;
+    font-size: 1.4rem;
+}
+
+.sources-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.source-group h5 {
+    color: var(--secondary-neon);
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(188, 19, 254, 0.3);
+    padding-bottom: 5px;
+    font-size: 1rem;
+}
+
+.source-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.source-list li {
+    margin-bottom: 10px;
+}
+
+.source-list a {
+    color: #aaa;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.source-list a:hover {
+    color: var(--primary-neon);
+    transform: translateX(5px); /* Легкий зсув при наведенні */
+}
+
+/* Стрілочка перед посиланням */
+.source-list a::before {
+    content: "→";
+    margin-right: 8px;
+    color: var(--secondary-neon);
+}
+
+.source-note {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #555;
+    font-style: italic;
+}
+
+/* Адаптація для мобільних */
+@media (max-width: 768px) {
+    .sources-columns {
+        grid-template-columns: 1fr;
+    }
+}
